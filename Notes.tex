@@ -317,7 +317,7 @@
 \titleformat{\chapter}[display]   
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
 \titlespacing*{\chapter}{0pt}{-50pt}{40pt}
-\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\huge}
 \newpagestyle{mystyle}
 {\sethead[\thepage][][\chaptertitle]{}{}{\thepage}}
 \pagestyle{plain}
@@ -432,6 +432,27 @@
         \item Note that when solving for \(\lvert x \rvert=y\), \(\lvert x \rvert < y\), etc, \(y\) must be greater than or equal to 0. In other words, there may be solutions we will need to reject.\\ \footnotesize(For \(<\), equality is of course not allowed.)\normalsize  
     \end{itemize}
 \end{IN}
+
+\chapter{B1(A): Graphing Techniques (Part I)}
+\begin{tcolorbox}
+    [
+    colback=yellow!20,
+    boxrule=1pt,
+    boxsep=1pt,
+    left=2pt,right=2pt,top=2pt,bottom=2pt,
+    oversize=2pt,
+    colframe=blue!75!black,
+    before skip=\topsep,
+    after skip=\topsep,
+    title=General Definitions,
+]
+    \begin{enumerate}
+        \item \textbf{Lines of Symmetry}: A \emph{line of symmetry} of a function is a line, such that the function is a reflection of itself about that line.
+        \item \textbf{Horizontal Asymptotes}: A (horizontal) line \(g(x)=c\) is the \emph{horizontal asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}{f(x)}=c\) (or with \(-\infty\) instead of \(\infty\)).\footnote{Otherwise notated by \(f(x) \to c\) as \(x \to \infty\).}
+        \item \textbf{Vertical Asymptotes}: A (vertical) line \(x=c\) is a \emph{vertical asymptote} of the curve \(f(x)\) iff \(\lim_{x \to c}{f(x)}=\operatorname{\infty} \text{ or } -\infty\).
+        \item \textbf{Oblique Asymptotes}: A line \(g(x)=mx+c\) --- where \(m \neq 0\) --- is an \emph{oblique asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}[f(x)-g(x)]=0\) (or with \(-\infty\) instead of \(\infty\)).
+    \end{enumerate}
+\end{tcolorbox}
 
 
 \end{document}
