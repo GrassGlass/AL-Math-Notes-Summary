@@ -30,6 +30,8 @@
 \usepackage[normalem]{ulem}
 \newcommand\hlg{\bgroup\markoverwith
   {\textcolor{green}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+  \newcommand\hly{\bgroup\markoverwith
+  {\textcolor{yellow}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
 \usepackage{mathrsfs}  
 \usepackage{amsmath}
 \makeatletter
@@ -433,6 +435,12 @@
         \item Note that when solving for \(\lvert x \rvert=y\), \(\lvert x \rvert < y\), etc, \(y\) must be greater than or equal to 0. In other words, there may be solutions we will need to reject.\\ \footnotesize(For \(<\), equality is of course not allowed.)\normalsize  
     \end{itemize}
 \end{IN}
+\begin{IN}
+\begin{itemize}[label=\scriptsize\(\triangle\)\normalsize]
+  \item Carelessness: Look at the question carefully! If they ask for a \emph{set} of values, then rmb to give it as a \emph{set}!
+  \item Exponentiation and Logarithms: Simply use \(\ln\) and avoid \(\log_c\) for \(c<1\).\footnote{Order is \emph{Preserved} under exponentiation/logarithms if the base is \emph{larger than} one. Otherwise, when it is \emph{less than} one, the order is \emph{reversed}. \url{https://www.desmos.com/calculator/gd8z5fa0bg}}
+\end{itemize}
+\end{IN}
 
 \chapter{B1(A): Graphing Techniques (Part I)}
 \begin{tcolorbox}
@@ -453,6 +461,41 @@
         \item \textbf{Vertical Asymptotes}: A (vertical) line \(x=c\) is a \emph{vertical asymptote} of the curve \(f(x)\) iff \(\lim_{x \to c}{f(x)}=\operatorname{\infty} \text{ or } -\infty\).
         \item \textbf{Oblique Asymptotes}: A line \(g(x)=mx+c\) --- where \(m \neq 0\) --- is an \emph{oblique asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}[f(x)-g(x)]=0\) (or with \(-\infty\) instead of \(\infty\)).
     \end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[
+  colback=yellow!20,
+  boxrule=1pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=2pt,bottom=2pt,
+  oversize=2pt,
+  colframe=blue!75!black,
+  before skip=\topsep,
+  after skip=\topsep,
+  title=Curve Sketching (Rational Funcs),
+]
+  \begin{enumerate}
+    \item[\textbf{S}] Stationary points
+    \item[\textbf{I}] Intersection with axes
+    \item[\textbf{A}] Asymptotes   
+  \end{enumerate}
+  \begin{enumerate}[label=\roman*]
+    \item Know how to sketch the graphs of \(y=\frac{ax+b}{cx+d}\) and \(y=\frac{ax^2+bx+c}{dx+e}\).
+    \item Rectangular Hyperbolas (of the form \(y=\frac{ax+b}{cx+d}\)):
+    \begin{itemize}
+      \item \emph{Two} asymptotes, namely \(x=-\frac{d}{c}\) and \(y=\frac{a}{c}\).
+      \item \emph{Two} lines of symmetry with gradients \(\pm 1\) \emph{and} pass through the intersection point of the aforementioned two asymptotes.
+    \end{itemize}
+    \item \emph{If} \(n=\operatorname{deg}P=\operatorname{deg}Q\), then
+    \begin{itemize}
+      \item \(y=R(x)\) is the \emph{horizontal} asymptote of \(\frac{P(x)}{Q(x)}=R(x)+\frac{S(x)}{Q(x)}\).
+      \item Equivalently, \(y=\frac{\operatorname{coeff}_P(x^n)}{\operatorname{coeff}_Q(x^n)}\) is a \emph{horizontal} asymptote.\footnote{E.g.: \(y=\frac{1}{15}\) is a horizontal asymptote of \(y=\frac{\text{\hly{\(1\)}}x^2+2x-3}{(\text{\hly{\(5\)}}x+1)(\text{\hly{\(3\)}}x+2)}\).}
+    \end{itemize}
+    \item If \(\operatorname{deg}P=\operatorname{deg}Q+1\), then \(R(x)\) is an \emph{oblique} asymptote of \(\frac{P(x)}{Q(x)}=R(x)+\frac{S(x)}{Q(x)}\).
+    \item Write down asymptotes and lines of symmetry.\footnote{E.g.: \begin{itemize}
+      \item[] Asymptotes: \(x=4\), \(y=20\).
+      \item[] Lines of Symmetry: \(y=x+16\), \(y=-x+24\).
+    \end{itemize} } If none are present indicate with ``No lines of symmetry.''
+  \end{enumerate}
 \end{tcolorbox}
 
 
