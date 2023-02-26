@@ -1,5 +1,5 @@
-\contentsline {chapter}{\numberline {1}A1: Inequalities and Equations}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Solving Inequalities}{2}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Rational Inequalities}{2}{subsection.1.1.1}%
-\contentsline {section}{\numberline {1.2}Modulus Inequalities}{2}{section.1.2}%
-\contentsline {chapter}{\numberline {2}B1(A): Graphing Techniques (Part I)}{4}{chapter.2}%
+\contentsline {chapter}{\numberline {1}A1: Inequalities and Equations}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Solving Inequalities}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Rational Inequalities}{1}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Modulus Inequalities}{1}{section.1.2}%
+\contentsline {chapter}{\numberline {2}B1(A): Graphing Techniques (Part I)}{3}{chapter.2}%

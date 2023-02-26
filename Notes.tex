@@ -1,395 +1,29 @@
 \documentclass[oneside]{book}
-\usepackage[utf8]{inputenc}
-\makeatletter
-\DeclareRobustCommand{\rvdots}{%
-  \vbox{
-    \baselineskip4\p@\lineskiplimit\z@
-    \kern-\p@
-    \hbox{.}\hbox{.}\hbox{.}
-  }}
-\makeatother
-\usepackage[outline]{contour}
-\usepackage{environ}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tikz}
-\usetikzlibrary {arrows.meta}
-\usetikzlibrary{cd}
-\NewEnviron{elaboration}{
-\par
-\begin{tikzpicture}
-\node[rectangle,minimum width=\linewidth] (m) {\begin{minipage}{\linewidth}\BODY\end{minipage}};
-\draw[dashed] (m.south west) rectangle (m.north east);
-\end{tikzpicture}
-}
-\usepackage{cancel}
-\usepackage{stackengine}
-\newcommand\lbr{%
-  \ensurestackMath{\stackengine{0pt}{\lfloor}{\lceil}{O}{c}{F}{F}{L}}}
-\newcommand\rbr{%
-  \ensurestackMath{\stackengine{0pt}{\rfloor}{\rceil}{O}{c}{F}{F}{L}}}
-\usepackage[normalem]{ulem}
-\newcommand\hlg{\bgroup\markoverwith
-  {\textcolor{green}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
-  \newcommand\hly{\bgroup\markoverwith
-  {\textcolor{yellow}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
-\usepackage{mathrsfs}  
-\usepackage{amsmath}
-\makeatletter
-\newcommand{\leqnomode}{\tagsleft@true}
-\newcommand{\reqnomode}{\tagsleft@false}
-\makeatother
-\makeatletter
-\newcommand{\ineq}{\mathrel{\text{\in@eq}}}
-\newcommand{\in@eq}{%
-  \oalign{%
-    \hidewidth$\m@th\in$\hidewidth\cr
-    \noalign{\nointerlineskip\kern1ex}%
-    $\m@th\smash{-}$\cr
-    \noalign{\nointerlineskip\kern-.5ex}%
-  }%
-}
-\newcommand{\notineq}{\mathrel{\text{\notin@eq}}}
-\newcommand{\notin@eq}{%
-  \oalign{%
-    \hidewidth$\m@th\notin$\hidewidth\cr
-    \noalign{\nointerlineskip\kern1ex}%
-    $\m@th\smash{-}$\cr
-    \noalign{\nointerlineskip\kern-.5ex}%
-  }%
-}
-\makeatother
-\usepackage[many]{tcolorbox}
-\usepackage{mathtools}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[section]
-\tcolorboxenvironment{theorem}{
-  colback=orange!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=blue!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\renewcommand{\thetheorem}{\arabic{section}\Alph{theorem}}
-\newtheorem{corollary}[theorem]{Corollary}
-\tcolorboxenvironment{corollary}{
-  colback=pink!25,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\newtheorem{lemma}[theorem]{Lemma}
-\tcolorboxenvironment{lemma}{
-  colback=yellow!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\theoremstyle{definition}
-\newtheorem*{definition}{Definition}
-\tcolorboxenvironment{definition}{
-  colback=black!5,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=white!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
 
-\newtheorem{Qns}{}[subsection]
-\renewcommand{\theQns}{\arabic{Qns}}
-\tcolorboxenvironment{Qns}{
-  enhanced, frame hidden, borderline west = {1pt}{0pt}{blue!50},
-  colback=blue!10,
-  coltext=black,
-  boxrule=1pt,
-  boxsep=1pt,
-  before skip=\topsep,
-  after skip=\topsep,
-}
+\usepackage{Style/Master}
+\usepackage{Style/boxes}
+\usepackage{Style/DefNoteFact}
+\usepackage{Style/QnsProof}
+\usepackage{Style/Thms}
+\usepackage{Style/Env}
 
-\tcolorboxenvironment{proof}{
-  enhanced, frame hidden, borderline west = {1pt}{0pt}{red!50},
-  breakable,
-  pad at break=2mm,
-  colback=red!10,
-  coltext=black,
-  boxrule=1pt,
-  boxsep=1pt,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-
-\theoremstyle{plain}
-\newtheorem{STheorem}{STheorem}
-\tcolorboxenvironment{STheorem}{
-  colback=green!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=blue!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\renewcommand{\theSTheorem}{\Roman{STheorem}}
-\theoremstyle{remark}
-\newtheorem*{fact}{Fact}
-\tcolorboxenvironment{fact}{
-  colback=white,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=white!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\newtheorem*{note}{Note}
-\tcolorboxenvironment{note}{
-  colback=white,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=white!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\newtcolorbox{IN}{
-    colback=green!15,
-    boxrule=1pt,
-    boxsep=1pt,
-    left=2pt,right=2pt,top=2pt,bottom=2pt,
-    oversize=2pt,
-    colframe=blue,
-    before skip=\topsep,
-    after skip=\topsep,
-    title=Important Notes,
-    colbacktitle=blue!75,
-    coltitle=white,
-    enhanced,
-    attach boxed title to top left,
-  }
-
-\theoremstyle{plain}
-\newtheorem{ZTheorem}{Theorem}[section]
-\tcolorboxenvironment{ZTheorem}{
-  colback=orange!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=blue!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\renewcommand{\theZTheorem}{\arabic{section}Z\Alph{ZTheorem}}
-\newtheorem{ZLemma}[ZTheorem]{Lemma}
-\tcolorboxenvironment{ZLemma}{
-  colback=yellow!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\newtheorem{ZCorollary}[ZTheorem]{Corollary}
-\tcolorboxenvironment{ZCorollary}{
-  colback=pink!25,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-
-\newtheorem{QTheorem}{Theorem}[section]
-\tcolorboxenvironment{QTheorem}{
-  colback=orange!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=blue!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\renewcommand{\theQTheorem}{\arabic{section}Q\Alph{QTheorem}}
-\newtheorem{QLemma}[QTheorem]{Lemma}
-\tcolorboxenvironment{QLemma}{
-  colback=yellow!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\newtheorem{QCorollary}[QTheorem]{Corollary}
-\tcolorboxenvironment{QCorollary}{
-  colback=pink!25,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-
-\newtheorem{RTheorem}{Theorem}[section]
-\tcolorboxenvironment{RTheorem}{
-  colback=orange!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=blue!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\renewcommand{\theRTheorem}{\arabic{section}R\Alph{RTheorem}}
-\newtheorem{RLemma}[RTheorem]{Lemma}
-\tcolorboxenvironment{RLemma}{
-  colback=yellow!15,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-\newtheorem{RCorollary}[RTheorem]{Corollary}
-\tcolorboxenvironment{RCorollary}{
-  colback=pink!25,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=orange!15,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-
-\newtheorem{innerPLemma}{PLemma}
-\newenvironment{PLemma}[1]
-  {\renewcommand\theinnerPLemma{#1}\innerPLemma}
-  {\endinnerPLemma}
-\tcolorboxenvironment{PLemma}{
-  colback=white,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=black!50,
-  before skip=\topsep,
-  after skip=\topsep,
-}
-
-\usepackage{ stmaryrd }
-\usepackage{ mathrsfs }
-\usepackage{graphicx}
-\graphicspath{ {./images/} }
-\usepackage{enumitem}
-
-\usepackage{fullpage}
-
-\usepackage[pagestyles]{titlesec}
-\titleformat{\chapter}[display]   
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
-\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
-\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\huge}
-\newpagestyle{mystyle}
-{\sethead[\thepage][][\chaptertitle]{}{}{\thepage}}
-\pagestyle{plain}
-
-\renewcommand\thesection{\thechapter.\arabic{section}}
-\renewcommand\thechapter{\arabic{chapter}}
-
-
-\usepackage{geometry}
-\geometry{
-  bottom=15mm
-}
-
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    }
-\renewcommand{\thefootnote}{\arabic{footnote}}	
-\usepackage{subfiles}
 \begin{document}
 
-
-\begin{tikzpicture}[font=\sffamily,remember picture,overlay]
-    \node[fill=Goldenrod,anchor=north, minimum width=\paperwidth, minimum height=2cm] (names)
- at ([yshift=-3cm]current page.north) {
-  \begin{tabular}{c}
-      \\
-      \color{blue} {\fontsize{24.88pt}{65pt}\selectfont A-Level Mathe}\\[2mm]
-      \Large \color{blue}{Shao Hong}\\
-      \\
-  \end{tabular}
-  };
-\end{tikzpicture}
-
-\begingroup
-\let\clearpage\relax
-\vspace{5cm}
-\tableofcontents
-
-\mainmatter
-\endgroup
-
-\newpage
+\input{Titlepage.tex}
 
 \chapter{A1: Inequalities and Equations}
 \section{Solving Inequalities}
 \subsection{Rational Inequalities}
-\begin{tcolorbox}[
-    colback=yellow!20,
-    boxrule=1pt,
-    boxsep=1pt,
-    left=2pt,right=2pt,top=2pt,bottom=2pt,
-    oversize=2pt,
-    colframe=blue!75!black,
-    before skip=\topsep,
-    after skip=\topsep,
-    title=General Methods,
-]
-    \begin{enumerate}
-        \item Quadratic formula for factorisation / finding roots (of polynomial).
-        \item Completing the square.
-        \item Discriminant/Completing the Sq to eliminate{\hyperlink{INEQGM3}{*}} factors which are \emph{always} positive or negative (e.g. removing \(x^2-3x+4\)). \emph{Note to include coefficient of \(x^2\) in argument.}
-        \item GC (include sketch).
-        \item \emph{Rational Functions}\footnote{Fractions of Polynomials}: Move everything to one side (\(+\),\(-\)), then use number line.
-        \item Number line (more complicated functions).
-    \end{enumerate}
-\end{tcolorbox}
+\begin{stbox}{General Methods}
+  \begin{enumerate}
+    \item Quadratic formula for factorisation / finding roots (of polynomial).
+    \item Completing the square.
+    \item Discriminant/Completing the Sq to eliminate{\hyperlink{INEQGM3}{*}} factors which are \emph{always} positive or negative (e.g. removing \(x^2-3x+4\)). \emph{Note to include coefficient of \(x^2\) in argument.}
+    \item GC (include sketch).
+    \item \emph{Rational Functions}\footnote{Fractions of Polynomials}: Move everything to one side (\(+\),\(-\)), then use number line.
+    \item Number line (more complicated functions).
+\end{enumerate}
+\end{stbox}
 \begin{IN}
     \begin{itemize}[label=\footnotesize \(\square\) \normalsize]
         \item \hypertarget{INEQGM3}{Eliminating Factors --- \emph{only}\footnote{Counterexample: \(P(x)=x(3x^2-9x+10) \leq 2\) iff \(x \leq 2\) is false. E.g.: \(P(1.8)=6.336 \not\leq 2\).} works for \(c=0\) in \(f(x) \geq c\) or \(f(x) \leq c\).}
@@ -412,24 +46,14 @@
         \item \(\sqrt{x}^2=\lvert x \rvert\).
     \end{itemize}
 \end{fact}
-\begin{tcolorbox}[
-    colback=yellow!20,
-    boxrule=1pt,
-    boxsep=1pt,
-    left=2pt,right=2pt,top=2pt,bottom=2pt,
-    oversize=2pt,
-    colframe=blue!75!black,
-    before skip=\topsep,
-    after skip=\topsep,
-    title=Useful Properties,
-]
-    For every \(x,k \in \mathbb{R}\):
-    \begin{enumerate}[label=(\alph*)]
-        \item \(\lvert x \rvert < k\) iff\footnote{Notice that \(k>0\) here since \(0 \leq \lvert x \rvert < k\).} \(-k<x<k\).
-        \item \(\lvert x \rvert > k\) iff \(x<-k\) or \(x>k\).
-    \end{enumerate}
-    \footnotesize (of course, similarly applies for the non-strict ordering \(\leq\)) \normalsize
-\end{tcolorbox}
+\begin{stbox}{Useful Properties}
+  For every \(x,k \in \mathbb{R}\):
+  \begin{enumerate}[label=(\alph*)]
+      \item \(\lvert x \rvert < k\) iff\footnote{Notice that \(k>0\) here since \(0 \leq \lvert x \rvert < k\).} \(-k<x<k\).
+      \item \(\lvert x \rvert > k\) iff \(x<-k\) or \(x>k\).
+  \end{enumerate}
+  \footnotesize (of course, similarly applies for the non-strict ordering \(\leq\)) \normalsize
+\end{stbox}
 \begin{IN}
     \begin{itemize}[label=\(\circ\)]
         \item Note that when solving for \(\lvert x \rvert=y\), \(\lvert x \rvert < y\), etc, \(y\) must be greater than or equal to 0. In other words, there may be solutions we will need to reject.\\ \footnotesize(For \(<\), equality is of course not allowed.)\normalsize  
@@ -443,36 +67,15 @@
 \end{IN}
 
 \chapter{B1(A): Graphing Techniques (Part I)}
-\begin{tcolorbox}
-    [
-    colback=yellow!20,
-    boxrule=1pt,
-    boxsep=1pt,
-    left=2pt,right=2pt,top=2pt,bottom=2pt,
-    oversize=2pt,
-    colframe=blue!75!black,
-    before skip=\topsep,
-    after skip=\topsep,
-    title=General Definitions,
-]
-    \begin{enumerate}
-        \item \textbf{Lines of Symmetry}: A \emph{line of symmetry} of a function is a line, such that the function is a reflection of itself about that line.
-        \item \textbf{Horizontal Asymptotes}: A (horizontal) line \(g(x)=c\) is the \emph{horizontal asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}{f(x)}=c\) (or with \(-\infty\) instead of \(\infty\)).\footnote{Otherwise notated by \(f(x) \to c\) as \(x \to \infty\).}
-        \item \textbf{Vertical Asymptotes}: A (vertical) line \(x=c\) is a \emph{vertical asymptote} of the curve \(f(x)\) iff \(\lim_{x \to c}{f(x)}=\operatorname{\infty} \text{ or } -\infty\).
-        \item \textbf{Oblique Asymptotes}: A line \(g(x)=mx+c\) --- where \(m \neq 0\) --- is an \emph{oblique asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}[f(x)-g(x)]=0\) (or with \(-\infty\) instead of \(\infty\)).
-    \end{enumerate}
-\end{tcolorbox}
-\begin{tcolorbox}[
-  colback=yellow!20,
-  boxrule=1pt,
-  boxsep=1pt,
-  left=2pt,right=2pt,top=2pt,bottom=2pt,
-  oversize=2pt,
-  colframe=blue!75!black,
-  before skip=\topsep,
-  after skip=\topsep,
-  title=Curve Sketching (Rational Funcs),
-]
+\begin{stbox}{General Definitions}
+  \begin{enumerate}
+    \item \textbf{Lines of Symmetry}: A \emph{line of symmetry} of a function is a line, such that the function is a reflection of itself about that line.
+    \item \textbf{Horizontal Asymptotes}: A (horizontal) line \(g(x)=c\) is the \emph{horizontal asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}{f(x)}=c\) (or with \(-\infty\) instead of \(\infty\)).\footnote{Otherwise notated by \(f(x) \to c\) as \(x \to \infty\).}
+    \item \textbf{Vertical Asymptotes}: A (vertical) line \(x=c\) is a \emph{vertical asymptote} of the curve \(f(x)\) iff \(\lim_{x \to c}{f(x)}=\operatorname{\infty} \text{ or } -\infty\).
+    \item \textbf{Oblique Asymptotes}: A line \(g(x)=mx+c\) --- where \(m \neq 0\) --- is an \emph{oblique asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}[f(x)-g(x)]=0\) (or with \(-\infty\) instead of \(\infty\)).
+\end{enumerate}
+\end{stbox}
+\begin{stbox}{Curve Sketching (Rational Funcs)}
   \begin{enumerate}
     \item[\textbf{S}] Stationary points
     \item[\textbf{I}] Intersection with axes
@@ -496,7 +99,6 @@
       \item[] Lines of Symmetry: \(y=x+16\), \(y=-x+24\).
     \end{itemize} } If none are present indicate with ``No lines of symmetry.''
   \end{enumerate}
-\end{tcolorbox}
-
+\end{stbox}
 
 \end{document}
