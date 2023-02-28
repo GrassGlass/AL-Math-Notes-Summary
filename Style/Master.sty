@@ -13,7 +13,11 @@
 \RequirePackage[outline]{contour}
 \RequirePackage{environ}
 \RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{colortbl}
 \RequirePackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
 \usetikzlibrary {arrows.meta}
 \usetikzlibrary{cd}
 \NewEnviron{elaboration}{
@@ -96,5 +100,5 @@
     filecolor=magenta,      
     urlcolor=cyan,
     }
-\renewcommand{\thefootnote}{\arabic{footnote}}	
 \RequirePackage{subfiles}
+\renewcommand*{\thefootnote}{\arabic{footnote}}

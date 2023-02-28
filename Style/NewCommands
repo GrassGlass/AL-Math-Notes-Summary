@@ -1,0 +1,4 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{NewCommands}
+
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}

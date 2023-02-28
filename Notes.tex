@@ -7,6 +7,11 @@
 \usepackage{Style/Thms}
 \usepackage{Style/Env}
 
+\usetikzlibrary{fit}
+\newcommand\addvmargin[1]{
+  \node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};
+}
+
 \begin{document}
 
 \input{Titlepage.tex}
@@ -28,7 +33,8 @@
     \begin{itemize}[label=\footnotesize \(\square\) \normalsize]
         \item \hypertarget{INEQGM3}{Eliminating Factors --- \emph{only}\footnote{Counterexample: \(P(x)=x(3x^2-9x+10) \leq 2\) iff \(x \leq 2\) is false. E.g.: \(P(1.8)=6.336 \not\leq 2\).} works for \(c=0\) in \(f(x) \geq c\) or \(f(x) \leq c\).}
         \item Discriminant --- include coefficient of \(x^2\) in argument.
-        \item Rational functions --- exclude the values that causes division by zero to occur. 
+        \item Rational functions --- exclude the values that causes division by zero to occur.
+        \item With inequalities, be really careful about multiplication! If \(x>y\) \emph{and} \hly{\(z>0\)}, then \(xz>yz\). 
         \item Cross multiplication preserves order for \(\frac{x}{y}<\frac{x'}{y'}\) iff \(y\) and \(y'\) are \emph{both} positive or negative.\footnote{Otherwise, note the counterexample \(\frac{1}{2}<\frac{1}{-3}\).}
         \item Squaring preserves order for \(x<y\) iff \(x\) and \(y\) are \emph{both} positive or negative.
     \end{itemize}
@@ -66,15 +72,71 @@
 \end{itemize}
 \end{IN}
 
+\section{System of Linear Equations}
+\begin{stbox}{Things}
+  \begin{itemize}[label=\(\chi\)]
+    \item  For more complicated real-world-context qns, try playing around with the values (e.g. use simult eqns) first. It may work out nicer than expected.
+  \end{itemize}
+\end{stbox}
+\section{Summary}
+
+\begin{lbox}[colbacktitle=white, coltitle=black, colframe=black]{G.C. Skills} 
+  \begin{enumerate}
+    \item Plotting curves \(y=f(x)\) in G.C.
+    \item How to use simultaneous equation solver.
+  \end{enumerate}
+\end{lbox}
+\begin{IN}
+  \begin{itemize}[label=\footnotesize \(\qed\) \normalsize]
+    \item \hypertarget{INEQGM3}{Eliminating Factors --- \emph{only}\footnote{Counterexample: \(P(x)=x(3x^2-9x+10) \leq 2\) iff \(x \leq 2\) is false. E.g.: \(P(1.8)=6.336 \not\leq 2\).} works for \(c=0\) in \(f(x) \geq c\) or \(f(x) \leq c\).}
+    \item Discriminant --- include coefficient of \(x^2\) in argument.
+    \item Rational functions --- exclude the values that causes division by zero to occur.
+    \item With inequalities, be really careful about multiplication! If \(x>y\) \emph{and} \hly{\(z>0\)}, then \(xz>yz\). 
+    \item Cross multiplication preserves order for \(\frac{x}{y}<\frac{x'}{y'}\) iff \(y\) and \(y'\) are \emph{both} positive or negative.\footnote{Otherwise, note the counterexample \(\frac{1}{2}<\frac{1}{-3}\).}
+    \item Squaring preserves order for \(x<y\) iff \(x\) and \(y\) are \emph{both} positive or negative.
+    \item  Note that when solving for \(\lvert x \rvert=y\), \(\lvert x \rvert < y\), etc, \(y\) must be greater than or equal to 0. In other words, there may be solutions we will need to reject.\\ \footnotesize(For \(<\), equality is of course not allowed.)
+    \item Carelessness: Look at the question carefully! If they ask for a \emph{set} of values, then rmb to give it as a \emph{set}!
+    \item Exponentiation and Logarithms: Simply use \(\ln\) and avoid \(\log_c\) for \(c<1\).\footnote{Order is \emph{Preserved} under exponentiation/logarithms if the base is \emph{larger than} one. Otherwise, when it is \emph{less than} one, the order is \emph{reversed}. \url{https://www.desmos.com/calculator/gd8z5fa0bg}}
+    \item  For more complicated real-world-context qns, try playing around with the values (e.g. use simult eqns) first. It may work out nicer than expected.
+\end{itemize}
+\end{IN}
+
+\chapter{A5.1: Differentiation}
+\section{Limits}
+\section{Geometrical Results of the Derivatives}
+\begin{definition*}{}{}
+  \begin{enumerate}[label=(\roman*)]
+    \item A function \(f\) is called (strictly) increasing on an interval \(I\) iff \(f'(x)>0\) for all \(x \in I\).
+    \item A function \(f\) is called monotonically increasing on an interval \(I\) iff \(f'(x) \geq 0\) for any \(x \in I\).
+  \end{enumerate}
+\end{definition*}
+\begin{stbox}{Things To Know}
+  \begin{enumerate}
+    \item How to sketch the graph of the integral or\footnote{Of course, provided that \(f\) is integrable/differentiable.} derivative of a function \(f\).
+    \item Relationship btw. a function \(f\) and its derivative, \(f'\):\\[4mm]
+    \begin{tabular}{|c|c|}
+      \hline
+      \(y=f(x)\) & \(y=f'(x)\)\\
+      \hline
+      Vertical asymptote at \(x=a\) & Vertical asymptote at \(x=a\).\\
+      \hline
+      Horizontal asymptote at \(y=a\) & Horizontal asymptote \(y=0\).\\
+      \hline
+    \end{tabular}
+  \end{enumerate}
+\end{stbox}
+
 \chapter{B1(A): Graphing Techniques (Part I)}
-\begin{stbox}{General Definitions}
+\section{Graphing `Familiar' Functions and Asymptotic bois}
+
+\begin{definition*}{}{}
   \begin{enumerate}
     \item \textbf{Lines of Symmetry}: A \emph{line of symmetry} of a function is a line, such that the function is a reflection of itself about that line.
     \item \textbf{Horizontal Asymptotes}: A (horizontal) line \(g(x)=c\) is the \emph{horizontal asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}{f(x)}=c\) (or with \(-\infty\) instead of \(\infty\)).\footnote{Otherwise notated by \(f(x) \to c\) as \(x \to \infty\).}
     \item \textbf{Vertical Asymptotes}: A (vertical) line \(x=c\) is a \emph{vertical asymptote} of the curve \(f(x)\) iff \(\lim_{x \to c}{f(x)}=\operatorname{\infty} \text{ or } -\infty\).
     \item \textbf{Oblique Asymptotes}: A line \(g(x)=mx+c\) --- where \(m \neq 0\) --- is an \emph{oblique asymptote} of the curve \(f(x)\) iff \(\lim_{x \to \infty}[f(x)-g(x)]=0\) (or with \(-\infty\) instead of \(\infty\)).
 \end{enumerate}
-\end{stbox}
+\end{definition*}
 \begin{stbox}{Curve Sketching (Rational Funcs)}
   \begin{enumerate}
     \item[\textbf{S}] Stationary points
@@ -83,7 +145,7 @@
   \end{enumerate}
   \begin{enumerate}[label=\roman*]
     \item Know how to sketch the graphs of \(y=\frac{ax+b}{cx+d}\) and \(y=\frac{ax^2+bx+c}{dx+e}\).
-    \item Rectangular Hyperbolas (of the form \(y=\frac{ax+b}{cx+d}\)):
+    \item Rectangular Hyperbolas \(\left(\text{of the form \(y=\frac{ax+b}{cx+d}\)}\right)\):
     \begin{itemize}
       \item \emph{Two} asymptotes, namely \(x=-\frac{d}{c}\) and \(y=\frac{a}{c}\).
       \item \emph{Two} lines of symmetry with gradients \(\pm 1\) \emph{and} pass through the intersection point of the aforementioned two asymptotes.
@@ -100,5 +162,242 @@
     \end{itemize} } If none are present indicate with ``No lines of symmetry.''
   \end{enumerate}
 \end{stbox}
+\begin{IN}
+  \begin{itemize}[label=---]
+    \item \emph{Can} explicitly write out the asymptotes and lines of symmetry (or if they are not present) to be safe.
+    \item Using the discriminant intelligently can result in nice answers.
+  \end{itemize}
+\end{IN}
+
+\section{Conics}
+\subsection{Ellipses}
+``Tikz is pain, PGFPlots is suffering'' --- Wise Man.
+\begin{center}
+  \small
+  \begin{tabular}{|c|c|c|}
+    \hline
+    & Ellipses & Hyperbolas\\
+    \hline
+    Standard Forms & \(\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\) & 
+    \begin{tabular}{@{}c@{}} 
+     \\
+    \(\frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\)\\
+    \(\frac{(y-k)^2}{b^2}-\frac{(x-h)^2}{a^2}=1\)\\
+    \\
+    \end{tabular}\\
+    \hline
+    General Equation & 
+    \begin{tabular}{@{}c@{}} 
+      \(ax^2+by^2+cx^2+dx+e=0\),\\
+      \footnotesize where \(\operatorname{sgn}(a)=\operatorname{sgn}b\). \normalsize
+     \end{tabular}
+     &
+     \begin{tabular}{@{}c@{}} 
+      \(ax^2+by^2+cx^2+dex+e=0\),\\
+      \footnotesize where \(\operatorname{sgn}(a) \neq \operatorname{sgn}b\). \normalsize
+     \end{tabular}\\
+     \hline
+     Center & \((h,k)\) & \((h,k)\)\\
+    \hline
+    \begin{tabular}{@{}c@{}} 
+      Vertical `Radius'\\
+      \footnotesize (variables here from \emph{standard form}!) \normalsize
+    \end{tabular}
+      & \(b\) & \(b\)\\
+      \hline
+    \begin{tabular}{@{}c@{}} 
+        Horizontal `Radius'\\
+        \footnotesize (variables here from \emph{standard form}!) \normalsize
+    \end{tabular}
+    & \(a\) & \(a\)\\
+    \hline
+    \begin{tabular}{@{}c@{}} 
+      Vertical  Vertices\\
+      \footnotesize (variables here from \emph{standard form}!) \normalsize
+    \end{tabular}
+    & \((h, k \pm b)\) & \((h, k  \pm b)\)\\
+    \hline
+    \begin{tabular}{@{}c@{}} 
+      Horizontal Vertices\\
+      \footnotesize (variables here from \emph{standard form}!) \normalsize
+    \end{tabular}
+    & \((h \pm a,k)\) & \((h \pm a, k)\)\\
+    \hline
+    Shape & 
+    \begin{tikzpicture}[scale=0.5]
+      
+      \begin{axis}[axis lines=middle,axis line style =-{Classical TikZ Rightarrow[length=5pt 3 0]},every axis x label/.style = {%
+        at = {(xticklabel cs:1.05)},
+        anchor = north},
+      every axis y label/.style = {%
+        at = {(yticklabel cs:1.05)},
+        anchor=east},
+        xtick=\empty, ytick=\empty,clip=false,xmin=0,xmax=11,xlabel=\Large\(x\),ylabel=\Large\(y\),ymin=0,ymax=6
+        ]
+        
+      \draw[blue] (5,3) ellipse (5 and 2);
+    
+      % label center
+      \node at (5,3) [below right] {\Large \((h,k)\)};
+
+      \node at (5,3) {\Large \color{red}{\(\times\)}};
+    
+      % draw h-line
+      \draw[->,arrows = -{Classical TikZ Rightarrow[length=5pt 3 0]}] (5,3) -- (0,3) node[midway, above] {\Large \(h\)};
+    
+      % draw another h-line
+      \draw[->,arrows = -{Classical TikZ Rightarrow[length=5pt 3 0]}] (5,3) -- (10,3);
+    
+      % draw k-line
+      \draw[->,arrows = -{Classical TikZ Rightarrow[length=5pt 3 0]}] (5,3) -- (5,5) node[midway, right] {\Large \(k\)};
+    
+      % draw another k-line
+      \draw[->,arrows = -{Classical TikZ Rightarrow[length=5pt 3 0]}] (5,3) -- (5,1);
+
+      \addplot+[
+  mark=x,
+  only marks,
+  mark size=6pt,
+  mark options={line width=1.5pt,red}
+] 
+  coordinates
+  {(5,3)};
+  
+      \end{axis}
+      % draw ellipse
+      \addvmargin{3mm}
+    \end{tikzpicture} & 
+    \begin{tabular}{@{}c@{}} 
+      \(\operatorname{coeff}(x^2)<0\)\\
+      \begin{tikzpicture}[scale=0.5]
+      
+        \begin{axis}[axis lines=middle,axis line style =-{Classical TikZ Rightarrow[length=5pt 3 0]},every axis x label/.style = {%
+          at = {(xticklabel cs:1.05)},
+          anchor = north},
+        every axis y label/.style = {%
+          at = {(yticklabel cs:1.05)},
+          anchor=east},
+          xtick=\empty, ytick=\empty,clip=false,xmin=-1,xmax=11,xlabel=\Large\(x\),ylabel=\Large\(y\),ymin=-1,ymax=7
+          ]
+          
+      \addplot [red,thick,domain=-2:2] ({sinh(x)+5}, {cosh(x)+3});
+      \addplot [red,thick,domain=-2:2] ({-sinh(x)+5}, {-cosh(x)+3});
+      \addplot[red,dashed,domain=1:9] {x-2};
+      \addplot[red,dashed,domain=1:9] {-x+8};
+
+        \node at (5,3) [below] {\Large \((h,k)\)};
+  
+        \node at (5,3) {\LARGE  \color{blue}{\(\times\)}};
+      
+        % draw h-line
+        \draw[->,arrows = -{Classical TikZ Rightarrow[length=3pt 3 0]}] (5,4) -- (4,4) node[midway, above] {\Large \(h\)};
+      
+        % draw k-line
+        \draw[->,arrows = -{Classical TikZ Rightarrow[length=3pt 3 0]}] (5,3) -- (5,4) node[midway, right] {\Large \(k\)};
+        
+        \addplot+[
+  mark=x,
+  only marks,
+  mark size=6pt,
+  mark options={line width=1.5pt}
+] 
+  coordinates
+  {(5,3)};
+
+        \end{axis}
+        % draw ellipse
+      \end{tikzpicture}\\
+      \(\operatorname{coeff}(y^2)<0\)\\
+      \begin{tikzpicture}[scale=0.5]
+      
+        \begin{axis}[axis lines=middle,axis line style =-{Classical TikZ Rightarrow[length=5pt 3 0]},every axis x label/.style = {%
+          at = {(xticklabel cs:1.05)},
+          anchor = north},
+        every axis y label/.style = {%
+          at = {(yticklabel cs:1.05)},
+          anchor=east},
+          xtick=\empty, ytick=\empty,clip=false,xmin=-1,xmax=11,xlabel=\Large\(x\),ylabel=\Large\(y\),ymin=-1,ymax=7
+          ]
+          
+        \addplot [red,thick,domain=-2:2] ({cosh(x)+5}, {sinh(x)+3});
+      \addplot [red,thick,domain=-2:2] ({-cosh(x)+5}, {sinh(x)+3});
+      \addplot[red,dashed,domain=1:9] {x-2};
+      \addplot[red,dashed,domain=1:9] {-x+8};
+
+        \node at (5,3) [below=0.25cm] {\Large \((h,k)\)};
+  
+        \node at (5,3) {\LARGE  \color{blue}{\(\times\)}};
+      
+        % draw h-line
+        \draw[->,arrows = -{Classical TikZ Rightarrow[length=3pt 3 0]}] (5,3) -- (4,3) node[midway, above] {\Large \(h\)};
+      
+        % draw k-line
+        \draw[->,arrows = -{Classical TikZ Rightarrow[length=3pt 3 0]}] (4,3) -- (4,4) node[midway, left] {\Large \(k\)};
+
+        \addplot+[
+  mark=x,
+  only marks,
+  mark size=6pt,
+  mark options={line width=1.5pt}
+] 
+  coordinates
+  {(5,3)};
+
+        \end{axis}
+        % draw ellipse
+      \end{tikzpicture}
+    \end{tabular}\\
+    \hline
+    \begin{tabular}{@{}c@{}} 
+      Asymptotes\\
+      (No need to rmb!)
+    \end{tabular}
+    & \(y=k \pm \frac{b(x-h)}{a}\) & \(y=k \pm \frac{b(x-h)}{a}\)\\
+    \hline
+    Lines of Symmetry & \(x=h\), \(y=k\) & \(x=h\), \(y=k\)\\
+    \hline
+  \end{tabular}
+  \normalsize
+\end{center}
+\begin{stbox}{General Info}
+  \begin{itemize}[label=\(\mathscr{H}\)]
+    \item To find asymptote of hyperbolas, just solve  
+    \[\frac{(x-h)^2}{a^2}=\frac{(y-k)^2}{b^2}.\]
+    \item Label vertices \emph{or} radii, together with the center and asymptotes.
+  \end{itemize}
+\end{stbox}
+\section{Parametric Equations}
+\begin{IN}
+  \begin{itemize}[label=\(\star\)]
+    \item Check the qns for any \emph{restrictions} on the parameter! And modify that of the G.C.'s accordingly (Tmin \& Tmax).
+  \end{itemize}
+\end{IN}
+\section{Summary}
+\begin{lbox}[colbacktitle=white, coltitle=black, colframe=black]{G.C. Skills} 
+  \begin{enumerate}
+    \item Plot conics with the two ways.
+    \item Know G.C. functions like finding axial intercepts.
+  \end{enumerate}
+\end{lbox}
+\begin{IN}
+  \begin{itemize}[label=-\(\square\)-]
+    \item \emph{Can} explicitly write out the asymptotes and lines of symmetry (or if they are not present) to be safe.
+    \item Using the discriminant intelligently can result in nice answers.
+    \item Check the qns for any \emph{restrictions} on the parameter! And modify that of the G.C.'s accordingly (Tmin \& Tmax).
+  \end{itemize}
+\end{IN}
+
+\chapter{Statistics 1: Permutations and Combinations}
+\section{The Addition and Multiplication Principles}
+\begin{example}{The Addition Principle}{}
+  There are three distinct cups of black sugar bubble tea and five unique cups of zero sugar bubbles tea available, I am buying \emph{exactly} one of them. How many choices do I have? Answer: \(3+5=8\).
+\end{example}
+\begin{example}{The Multiplication Principle}{}
+  A college planning committee consists of 3 freshmen, 4 sophomores, 5 juniors, and 2 seniors. A subcommittee of 4, consisting of 1 person from each class, is to be chosen. How many different subcommittees are possible. Answer: \(3 \cdot 4 \cdot 5 \cdot 2=120\). 
+\end{example}
+\section{Permutation}
+\begin{definition}{\(\perm{k}\)}{}
+  \[\perm{k} := \frac{n!}{(n-k)!}\quad\]
+\end{definition}
 
 \end{document}
