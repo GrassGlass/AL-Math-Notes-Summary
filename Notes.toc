@@ -13,6 +13,11 @@
 \contentsline {subsection}{\numberline {3.2.1}Ellipses}{6}{subsection.3.2.1}%
 \contentsline {section}{\numberline {3.3}Parametric Equations}{7}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Summary}{7}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Statistics 1: Permutations and Combinations}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The Addition and Multiplication Principles}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Permutation}{8}{section.4.2}%
+\contentsline {chapter}{\numberline {4}Chapter B1(B): Graphing Techniques (Part II)}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Scaling, Translations, and Reflections}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}\(\lvert f(x) \rvert \) and \(f \mathopen {} \left ( \lvert x \rvert \right )\)}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}\(y=\frac {1}{f(x)}\)}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Summary}{9}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Statistics 1: Permutations and Combinations}{10}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The Addition and Multiplication Principles}{10}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Permutation}{10}{section.5.2}%

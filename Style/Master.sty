@@ -15,8 +15,20 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{colortbl}
 \RequirePackage{tikz}
-\usepackage{pgfplots}
+\RequirePackage{pgfplots}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes.geometric}
+\usepackage{pifont}
+%NewPackages
+\newcommand\addvmargin[1]{
+  \node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};
+}
+\RequirePackage{booktabs}
+\RequirePackage{cellspace}
+\setlength\cellspacetoplimit{1.5pt}
+\setlength\cellspacebottomlimit{1.5pt}
 \pgfplotsset{compat=1.18}
+%NewPackageEnd
 \usetikzlibrary{calc}
 \usetikzlibrary {arrows.meta}
 \usetikzlibrary{cd}
@@ -80,7 +92,7 @@
 \titleformat{\chapter}[display]   
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
 \titlespacing*{\chapter}{0pt}{-50pt}{40pt}
-\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\huge}
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\LARGE}
 \newpagestyle{mystyle}
 {\sethead[\thepage][][\chaptertitle]{}{}{\thepage}}
 

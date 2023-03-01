@@ -7,11 +7,6 @@
 \usepackage{Style/Thms}
 \usepackage{Style/Env}
 
-\usetikzlibrary{fit}
-\newcommand\addvmargin[1]{
-  \node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};
-}
-
 \begin{document}
 
 \input{Titlepage.tex}
@@ -166,6 +161,7 @@
   \begin{itemize}[label=---]
     \item \emph{Can} explicitly write out the asymptotes and lines of symmetry (or if they are not present) to be safe.
     \item Using the discriminant intelligently can result in nice answers.
+    \item Know how to use the G.C. Transfrm app.\footnote{Thingy that allows you to vary the value of some parameter \(A\) for a function \(f(Ax)\).}\footnote{E.g.: Solve for the values of \(k\) being a positive \emph{integer}. We can use the app to visually see where the curves intersect.} 
   \end{itemize}
 \end{IN}
 
@@ -197,31 +193,31 @@
       \footnotesize where \(\operatorname{sgn}(a) \neq \operatorname{sgn}b\). \normalsize
      \end{tabular}\\
      \hline
-     Center & \((h,k)\) & \((h,k)\)\\
+     Center & \multicolumn{2}{c|}{\((h,k)\)}\\
     \hline
     \begin{tabular}{@{}c@{}} 
       Vertical `Radius'\\
       \footnotesize (variables here from \emph{standard form}!) \normalsize
     \end{tabular}
-      & \(b\) & \(b\)\\
+      & \multicolumn{2}{c|}{\(b\)}\\
       \hline
     \begin{tabular}{@{}c@{}} 
         Horizontal `Radius'\\
         \footnotesize (variables here from \emph{standard form}!) \normalsize
     \end{tabular}
-    & \(a\) & \(a\)\\
+    & \multicolumn{2}{c|}{\(a\)}\\
     \hline
     \begin{tabular}{@{}c@{}} 
       Vertical  Vertices\\
       \footnotesize (variables here from \emph{standard form}!) \normalsize
     \end{tabular}
-    & \((h, k \pm b)\) & \((h, k  \pm b)\)\\
+    & \multicolumn{2}{c|}{\((h, k \pm b)\)}\\
     \hline
     \begin{tabular}{@{}c@{}} 
       Horizontal Vertices\\
       \footnotesize (variables here from \emph{standard form}!) \normalsize
     \end{tabular}
-    & \((h \pm a,k)\) & \((h \pm a, k)\)\\
+    & \multicolumn{2}{c|}{\((h \pm a,k)\)}\\
     \hline
     Shape & 
     \begin{tikzpicture}[scale=0.5]
@@ -352,9 +348,9 @@
       Asymptotes\\
       (No need to rmb!)
     \end{tabular}
-    & \(y=k \pm \frac{b(x-h)}{a}\) & \(y=k \pm \frac{b(x-h)}{a}\)\\
+    & & \(y=k \pm \frac{b(x-h)}{a}\)\\
     \hline
-    Lines of Symmetry & \(x=h\), \(y=k\) & \(x=h\), \(y=k\)\\
+    Lines of Symmetry & \multicolumn{2}{c|}{\(x=h\), \(y=k\)}\\
     \hline
   \end{tabular}
   \normalsize
@@ -370,6 +366,8 @@
 \begin{IN}
   \begin{itemize}[label=\(\star\)]
     \item Check the qns for any \emph{restrictions} on the parameter! And modify that of the G.C.'s accordingly (Tmin \& Tmax).
+    \item Vary the \(t-step\) or resolution (of cartesian form) as necessary \footnotesize(when the graph is oddly jagged)\normalsize0.
+    \item Think carefully for tricker qns\footnote{E.g.: Simult eqns can be useful in converting frm parametric to cartesian form.}.
   \end{itemize}
 \end{IN}
 \section{Summary}
@@ -383,9 +381,94 @@
   \begin{itemize}[label=-\(\square\)-]
     \item \emph{Can} explicitly write out the asymptotes and lines of symmetry (or if they are not present) to be safe.
     \item Using the discriminant intelligently can result in nice answers.
+    \item Know how to use the G.C. Transfrm app.\footnote{Thingy that allows you to vary the value of some parameter \(A\) for a function \(f(Ax)\).}\footnote{E.g.: Solve for the values of \(k\) being a positive \emph{integer}. We can use the app to visually see where the curves intersect.} 
     \item Check the qns for any \emph{restrictions} on the parameter! And modify that of the G.C.'s accordingly (Tmin \& Tmax).
+    \item Vary the \(t-step\) or resolution (of cartesian form) as necessary \footnotesize(when the graph is oddly jagged)\normalsize0.
+    \item Think carefully for tricker qns\footnote{E.g.: Simult eqns can be useful in converting frm parametric to cartesian form.}.
   \end{itemize}
 \end{IN}
+
+\chapter{Chapter B1(B): Graphing Techniques (Part II)}
+\section{Scaling, Translations, and Reflections}
+
+\begin{center}
+  \begin{tabular}{|Sc|Sc|Sc|}
+    \hline
+    \multicolumn{3}{|Sc|}{\large \color{blue}{Playing With \(x\)}}\\
+    \hline
+    Function & \(x\) is replaced with & (Horizontal) Transformation\\
+    \hline 
+    \(f(x+a)\) & \(x+a\) & 
+    \begin{tabular}{@{}c@{}} 
+      Translate \(a\) units in the positive (\(a \leq 1\))\\ 
+      O/R negative \(x\)-direction (\(a \geq 1\)).
+    \end{tabular}\\
+    \hline 
+    \(f(-x)\) & \(-x\) & Reflect about the \(y\)-axis\\
+    \hline
+    \(f(ax)\) & \(ax\) & Scale parallel to the \(x\)-axis by a scale factor of \(\frac{1}{a}\) if\footnote{otherwise simply reflect first} \(a \geq 1\).\\
+    \hline
+    \multicolumn{3}{|Sc|}{\large \color{red}{Playing With \(f(x)\)}}\\
+    \hline
+    \multicolumn{2}{|c|}{Function / Change to \(f(x)\)} & (Vertical) Transformation\\
+    \hline
+    \multicolumn{2}{|c|}{\(f(x)+a\)} & \begin{tabular}{@{}c@{}} 
+      Translate \(a\) units in the positive (\(a \geq 1\))\\ 
+      O/R negative \(y\)-direction (\(a \leq 1\)).
+    \end{tabular}\\
+    \hline
+    \multicolumn{2}{|c|}{\(-f(x)\)} & Reflect about the \(x\)-axis.\\
+    \hline
+    \multicolumn{2}{|c|}{\(af(x)\)} & Scale parallel to the \(y\)-axis by scale factor \(a\).\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{IN}
+\begin{center}
+  \begin{tikzpicture}
+    \node[ellipse, draw=blue, thick, minimum size=10mm,align=center] (x) at (1,0) {Transform \(x\)\\[2mm]
+    Translation \ding{239} Scaling / Reflection};
+    \node[ellipse, draw=red, thick, minimum size=10mm,align=center] (y) at (1,-3) {Transform \(y\)\\[2mm]
+    Scaling / Reflection \ding{239} Translation};
+    \draw [black, line width=0.75pt, arrows = {-Latex[open,scale=2]}] (x) to (y);
+  \end{tikzpicture}
+\end{center}
+\end{IN}
+
+\section{\(\lvert f(x) \rvert\) and \(f \mathopen{} \left( \lvert x \rvert\right)\)}
+\begin{stbox}{Basics}
+  \begin{itemize}[label=\ding{243}]
+    \item \(f \mathopen{} \left( \lvert x \rvert\right)\) \ding{226} Graph of `negative side' is a reflection of the `positive side' (across the \(y\)-axis).
+  \end{itemize}
+\end{stbox}
+\section{\(y=\frac{1}{f(x)}\)}
+\begin{center}
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    Conditions & Results\\
+    \hline
+    \(f(x)>0\) & \(\frac{1}{f(x)}>0\)\\
+    \hline 
+    \(f(x)<0\) & \(\frac{1}{f(x)}<0\)\\
+    \hline
+    Vertical Asymptote at \(x=c\) & \begin{tabular}{@{}c@{}} 
+      \(\frac{1}{f(x)}\) \emph{tends} to 0\\
+      \scriptsize \(^{*}\frac{1}{f(x)}\) is undefined at \(x=c\) \normalsize\\
+    \end{tabular}\\
+    \hline
+    \multicolumn{2}{|Sc|}{\begin{tabular}{@{}c@{}} 
+      \(\frac{df}{dx}=-\frac{d}{dx}\mathopen{}\left(\frac{1}{f(x)}\right)\)\\
+      \scriptsize i.e. when \(f(x)\) increases, \(\frac{1}{f(x)}\) decreases. \normalsize\\
+    \end{tabular}}\\
+    \hline 
+    \((a,b)\) is a \emph{minimum} pt & \(\left(a,\frac{1}{b}\right)\) is a \emph{maximum} pt\\
+    \hline
+    \((a,b)\) is a \emph{maximum} pt & \(\left(a,\frac{1}{b}\right)\) is a \emph{minimum} pt\\
+    \hline
+  \end{tabular}
+\end{center}
+\section{Summary}
 
 \chapter{Statistics 1: Permutations and Combinations}
 \section{The Addition and Multiplication Principles}
@@ -399,5 +482,10 @@
 \begin{definition}{\(\perm{k}\)}{}
   \[\perm{k} := \frac{n!}{(n-k)!}\quad\]
 \end{definition}
+\begin{stbox}{General Necessities}
+  \begin{itemize}
+    \item Know how to `group' objects together so as to calculate the total no. of permutations.
+  \end{itemize}
+\end{stbox}
 
 \end{document}
